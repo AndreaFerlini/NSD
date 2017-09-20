@@ -45,8 +45,13 @@ long edgeCounter(string filename){
     long countEdges = 0;
     
     graph.open(filename, ios::in);
-    while(getline(graph, line)){
-        countEdges++;
+    if (graph.is_open()){
+        cout << "graph is open" << endl;
+        while(getline(graph, line)){
+            countEdges++;
+        }
+    }else{
+        cout << "unable to open the file" << endl;    
     }
     graph.close();
     return countEdges;

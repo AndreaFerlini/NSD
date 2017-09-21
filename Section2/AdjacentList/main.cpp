@@ -10,7 +10,7 @@
 #include <fstream>
 #include <ctime>
 #include <list>
-#include<set>
+#include <set>
 
 using namespace std;
 

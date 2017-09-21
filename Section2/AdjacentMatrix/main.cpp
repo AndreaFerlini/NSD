@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <cstring>
 #include <ctime>
 #include <set>
 
@@ -15,7 +16,7 @@ using namespace std;
 
 // functions
 long nodeCounter(string filename);
-void loadAdjMat(string filename, long numNodes);
+void loadAdjMat(string filename, const long numNodes, unsigned** AdjMat);
 
 int main(int argc, const char * argv[]) {
     
@@ -26,32 +27,33 @@ int main(int argc, const char * argv[]) {
 
     long nodes;
     long start, end;
-    
+    unsigned** AdjMArtix;
+
     start = time(NULL);
-    
     cout << nodeCounter(filename) << endl << endl;
     nodes = nodeCounter(filename);
-    //loadAdjMat(filename, edges);
+    loadAdjMat(filename, nodes, AdjMArtix);
 
     end = time(NULL);
-    cout << end-start << endl;
+    cout << "enlapsed time: " << end-start << endl;
     return 0;
 }
 
 ///
-long nodeCounter(string filename){
+long nodeCounter(const string filename){
     fstream graph;
     long node = 0;
     long countNode = 0;
-    
-    graph.open(filename, ios::in);
+    cout << "Counting the nodes: opening the file..." << endl;
+    graph.open(filename, fstream::in);
     if(graph.is_open()){
+        cout << "File open. Counting..." << endl;
         while(!graph.eof()){
             graph >> node;
-            node > countNode ? countNode=node: NULL;
+            if(node>countNode) countNode=node;
         }
     }else{
-        cout << "unable to open the file" << endl;
+        cout << "[ERROR] Counting the nodes: unable to open the file" << endl;
     }
     
     graph.close();
@@ -59,46 +61,54 @@ long nodeCounter(string filename){
 }
 
 /// calculate the number of nodes and edges
-// void loadAdjMat(string filename, long numNodes){
-//     fstream graph;
-//     pair<int,int> *edgeArray = NULL;
+void loadAdjMat(string filename, const long numNodes, unsigned** AdjMat){
+	fstream graph;
+	
+    cout << "Writing adjacent matrix: allocating memory..." << endl;
+	AdjMat = new unsigned*[numNodes];
 
-//     cout << "loading the graph as a list of edges" << endl;
+    for (int i = 0; i < numNodes; i++) {
+		AdjMat[i] = new unsigned[numNodes];
+	}
 
-//     graph.open(filename, ios::in);
-//     edgeArray =  new pair<int,int> [numEdges];
-    
-//     /// TODO not efficient
-//     for(int i=0; i<numEdges; i++){
-//         edgeArray[i].first = 0;
-//         edgeArray[i].second = 0;
-//     }
+/// init the matrix
+    for (int row = 0; row < numNodes; row++) {
+            for (int col = 0; col < numNodes; col++) {
+                AdjMat[row][col] = 0;
+            }
+            cout << endl;
+    }
 
-//     if (graph.is_open()){
-//         cout << "graph is open" << endl;
-//         int node, neighbour;
-//         int e=0;
+    cout << "Writing adjacent matrix: opening the file..." << endl;
+    graph.open(filename, ios::in);
+    if (graph.is_open()){
+        cout << "File open. Writing..." << endl;
+		int node, neighbour;
 
-//         while(!graph.eof()){
-//             node = 0;
-//             neighbour = 0;
+		while(!graph.eof()){
+			node = 0;
+			neighbour = 0;
+			graph >> node >> neighbour;
+			if ((node != 0 && neighbour != 0)){
+                AdjMat[node-1][neighbour-1] = 1;
+            }
+		}
 
-//             graph >> node >> neighbour;
-            
-//             edgeArray[e].first = node;
-//             edgeArray[e].second = neighbour;
-//             e++;
-//         }
+		/// DEBUG
+		cout << endl << "Adjcency Matrix" << endl;
+		for (int row = 0; row < numNodes; row++) {
+			for (int col = 0; col < numNodes; col++) {
+				cout << AdjMat[row][col] << " ";
+			}
+			cout << endl;
+		}
 
-//         /// DEBUG
-//         for(int i=0; i<numEdges; i++){
-//             cout << edgeArray[i].first << " " << edgeArray[i].second << endl;
-//         }
-//         cout << "graph loaded" << endl << endl;
-
-//     }else{
-//         cout << "unable to open the file" << endl;
-//     }
-//     delete [] edgeArray;
-//     graph.close();
-// }
+	}else{
+		cout << "[ERROR] Writing adjacent matrix: unable to open the file" << endl;
+	}
+	for (int i = 0; i < numNodes; i++) {
+		delete[] AdjMat[i];
+	}
+	delete[] AdjMat;
+	graph.close();
+}

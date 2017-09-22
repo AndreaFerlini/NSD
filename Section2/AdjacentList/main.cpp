@@ -39,11 +39,13 @@ int main(int argc, const char * argv[]) {
     
     nodes = nodeCounter(filename);
     loadAdjList(filename, nodes);
+
     printForDebug(nodes);
 
     end = time(NULL);
     cout << "enlapsed time: " << end-start << endl;
-
+    
+    delete [] adjList;
     return 0;
 }
 
@@ -89,6 +91,7 @@ void loadAdjList(string filename, long numNodes){
         int node, neighbour;
 
         while(!graph.eof()){
+            // cout << "DEBUG 1" << endl;
             node = 0;
             neighbour = 0;
 
@@ -96,10 +99,11 @@ void loadAdjList(string filename, long numNodes){
             adjList[node-1].insert(neighbour);
             adjList[neighbour-1].insert(node);
         }
+        cout << "graph loaded" << endl << endl;
     }else{
         cout << "unable to open the file" << endl;
     }
-    delete [] adjList;
+    //delete [] adjList;
     graph.close();
 }
 
@@ -111,5 +115,5 @@ void printForDebug(long numNodes){
         }
         cout << endl;
     }
-    cout << "graph loaded" << endl << endl;
+    cout << endl;
 }

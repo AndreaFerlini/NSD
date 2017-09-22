@@ -13,10 +13,15 @@
 
 using namespace std;
 
-// functions
+/// functions
 long edgeCounter(string filename);
 void loadEdgeList(string filename, long numEdges);
+void printForDebug(long numEdges);
 
+/// global variables
+pair<int,int> *edgeArray = NULL;
+
+/// main
 int main(int argc, const char * argv[]) {
     
     // string filename = "/Users/AndreaFerlini/Downloads/actor-movie/out.actor-movie";
@@ -29,12 +34,16 @@ int main(int argc, const char * argv[]) {
     
     start = time(NULL);
     
-    cout << edgeCounter(filename) << endl << endl;
+    // cout << edgeCounter(filename) << endl << endl;
+
     edges = edgeCounter(filename);
     loadEdgeList(filename, edges);
+    printForDebug(edges);
 
     end = time(NULL);
-    cout << end-start << endl;
+    cout << "enlapsed time: " << end-start << endl;
+
+    delete [] edgeArray;
     return 0;
 }
 
@@ -57,10 +66,10 @@ long edgeCounter(string filename){
     return countEdges;
 }
 
-/// calculate the number of nodes and edges
+/// loading the graph as a list of edges
 void loadEdgeList(string filename, long numEdges){
     fstream graph;
-    pair<int,int> *edgeArray = NULL;
+    // pair<int,int> *edgeArray = NULL;
 
     cout << "loading the graph as a list of edges" << endl;
 
@@ -88,16 +97,17 @@ void loadEdgeList(string filename, long numEdges){
             edgeArray[e].second = neighbour;
             e++;
         }
-
-        /// DEBUG
-        for(int i=0; i<numEdges; i++){
-            cout << edgeArray[i].first << " " << edgeArray[i].second << endl;
-        }
         cout << "graph loaded" << endl << endl;
-
     }else{
         cout << "unable to open the file" << endl;
     }
-    delete [] edgeArray;
     graph.close();
+}
+
+void printForDebug(long numEdges){
+    /// DEBUG
+    for(int i=0; i<numEdges; i++){
+        cout << edgeArray[i].first << " " << edgeArray[i].second << endl;
+    }
+    cout << endl;
 }

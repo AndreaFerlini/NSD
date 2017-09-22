@@ -14,10 +14,15 @@
 
 using namespace std;
 
-// functions
+/// functions
 long nodeCounter(string filename);
-void loadAdjMat(string filename, const long numNodes, unsigned** AdjMat);
+void loadAdjMat(string filename, const long numNodes);
+void printForDebug(const long numNodes);
 
+/// golobal variables
+unsigned** AdjMat;
+
+/// main
 int main(int argc, const char * argv[]) {
     
     // string filename = "/Users/AndreaFerlini/Downloads/actor-movie/out.actor-movie";
@@ -27,15 +32,20 @@ int main(int argc, const char * argv[]) {
 
     long nodes;
     long start, end;
-    unsigned** AdjMArtix;
 
     start = time(NULL);
     cout << nodeCounter(filename) << endl << endl;
     nodes = nodeCounter(filename);
-    loadAdjMat(filename, nodes, AdjMArtix);
+    loadAdjMat(filename, nodes);
+    printForDebug(nodes);
 
     end = time(NULL);
     cout << "enlapsed time: " << end-start << endl;
+    
+    for (int i = 0; i < nodes; i++) {
+        delete[] AdjMat[i];
+    }
+    delete[] AdjMat;
     return 0;
 }
 
@@ -61,7 +71,7 @@ long nodeCounter(const string filename){
 }
 
 /// calculate the number of nodes and edges
-void loadAdjMat(string filename, const long numNodes, unsigned** AdjMat){
+void loadAdjMat(string filename, const long numNodes){
 	fstream graph;
 	
     cout << "Writing adjacent matrix: allocating memory..." << endl;
@@ -71,12 +81,12 @@ void loadAdjMat(string filename, const long numNodes, unsigned** AdjMat){
 		AdjMat[i] = new unsigned[numNodes];
 	}
 
-/// init the matrix
+    /// init the matrix
     for (int row = 0; row < numNodes; row++) {
             for (int col = 0; col < numNodes; col++) {
                 AdjMat[row][col] = 0;
             }
-            cout << endl;
+            // cout << endl;
     }
 
     cout << "Writing adjacent matrix: opening the file..." << endl;
@@ -93,22 +103,20 @@ void loadAdjMat(string filename, const long numNodes, unsigned** AdjMat){
                 AdjMat[node-1][neighbour-1] = 1;
             }
 		}
-
-		/// DEBUG
-		cout << endl << "Adjcency Matrix" << endl;
-		for (int row = 0; row < numNodes; row++) {
-			for (int col = 0; col < numNodes; col++) {
-				cout << AdjMat[row][col] << " ";
-			}
-			cout << endl;
-		}
-
+        cout << "graph loaded" << endl << endl;
 	}else{
 		cout << "[ERROR] Writing adjacent matrix: unable to open the file" << endl;
 	}
-	for (int i = 0; i < numNodes; i++) {
-		delete[] AdjMat[i];
-	}
-	delete[] AdjMat;
 	graph.close();
+}
+
+void printForDebug(const long numNodes){
+    cout << endl << "Adjcency Matrix" << endl;
+    for (int row = 0; row < numNodes; row++) {
+        for (int col = 0; col < numNodes; col++) {
+            cout << AdjMat[row][col] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
 }

@@ -1,0 +1,3 @@
+D:/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir
+D:/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -88,21 +88,19 @@ struct gStats{
         set<int>::iterator zDN_it;
 
         cout    << "Graph Statistics" << endl
-                << "    Nodes:      " << nNodes << endl
-                << "    Edges:      " << nEdges << endl
-                << "    Min Degree: " << minDeg << endl
-                << "    Max Degree: " << maxDeg << endl
-                << "    Avg Degree: " << avgDeg << endl
-//                << "    Degree array: " << endl;
-//        degreeArray.print();
-        cout    << "    Zero Degree Nodes:";
-        if (zeroDegNodes.size()!=0){
-            for (zDN_it=zeroDegNodes.begin(); zDN_it!=zeroDegNodes.end(); zDN_it++)
-                cout  << " " << *zDN_it << ",";
+                << "    Nodes:          " << nNodes << endl
+                << "    Edges:          " << nEdges << endl
+                << "    Min Degree:     " << minDeg << endl
+                << "    Max Degree:     " << maxDeg << endl
+                << "    Avg Degree:     " << avgDeg << endl
+                << "    Zero Deg Nodes: " << zeroDegNodes.size() << endl;
+//        if (zeroDegNodes.size()!=0){
+//            for (zDN_it=zeroDegNodes.begin(); zDN_it!=zeroDegNodes.end(); zDN_it++)
+//                cout  << " " << *zDN_it << ",";
 
-        }else{
-            cout << " - " << endl;
-        }
+//        }else{
+//            cout << " - " << endl;
+//        }
         cout  << endl;
     }
 

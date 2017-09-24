@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
         unsigned long nodes;
         unsigned long edges;
         long start, end;
-        bool debug = true;
+        bool debug = false;
 
         start = time(nullptr);
 

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/JetBrains/clion-2017.2.2/bin/cmake/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /opt/JetBrains/clion-2017.2.2/bin/cmake/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/luca/Data/source/repo/NSD/CLion
+CMAKE_SOURCE_DIR = /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/luca/Data/source/repo/NSD/CLion/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CLion.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/CLion.dir/flags.make
 
 CMakeFiles/CLion.dir/main.cpp.o: CMakeFiles/CLion.dir/flags.make
 CMakeFiles/CLion.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CLion.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CLion.dir/main.cpp.o -c /home/luca/Data/source/repo/NSD/CLion/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CLion.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CLion.dir/main.cpp.o -c /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/main.cpp
 
 CMakeFiles/CLion.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CLion.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/Data/source/repo/NSD/CLion/main.cpp > CMakeFiles/CLion.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/main.cpp > CMakeFiles/CLion.dir/main.cpp.i
 
 CMakeFiles/CLion.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CLion.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/Data/source/repo/NSD/CLion/main.cpp -o CMakeFiles/CLion.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/main.cpp -o CMakeFiles/CLion.dir/main.cpp.s
 
 CMakeFiles/CLion.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/CLion.dir/main.cpp.o.provides.build: CMakeFiles/CLion.dir/main.cpp.o
 
 CMakeFiles/CLion.dir/graphstats.cpp.o: CMakeFiles/CLion.dir/flags.make
 CMakeFiles/CLion.dir/graphstats.cpp.o: ../graphstats.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CLion.dir/graphstats.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CLion.dir/graphstats.cpp.o -c /home/luca/Data/source/repo/NSD/CLion/graphstats.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CLion.dir/graphstats.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CLion.dir/graphstats.cpp.o -c /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/graphstats.cpp
 
 CMakeFiles/CLion.dir/graphstats.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CLion.dir/graphstats.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/Data/source/repo/NSD/CLion/graphstats.cpp > CMakeFiles/CLion.dir/graphstats.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/graphstats.cpp > CMakeFiles/CLion.dir/graphstats.cpp.i
 
 CMakeFiles/CLion.dir/graphstats.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CLion.dir/graphstats.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/Data/source/repo/NSD/CLion/graphstats.cpp -o CMakeFiles/CLion.dir/graphstats.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/graphstats.cpp -o CMakeFiles/CLion.dir/graphstats.cpp.s
 
 CMakeFiles/CLion.dir/graphstats.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/CLion.dir/graphstats.cpp.o.provides.build: CMakeFiles/CLion.dir/graph
 
 CMakeFiles/CLion.dir/storegaph.cpp.o: CMakeFiles/CLion.dir/flags.make
 CMakeFiles/CLion.dir/storegaph.cpp.o: ../storegaph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CLion.dir/storegaph.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CLion.dir/storegaph.cpp.o -c /home/luca/Data/source/repo/NSD/CLion/storegaph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CLion.dir/storegaph.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CLion.dir/storegaph.cpp.o -c /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/storegaph.cpp
 
 CMakeFiles/CLion.dir/storegaph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CLion.dir/storegaph.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/Data/source/repo/NSD/CLion/storegaph.cpp > CMakeFiles/CLion.dir/storegaph.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/storegaph.cpp > CMakeFiles/CLion.dir/storegaph.cpp.i
 
 CMakeFiles/CLion.dir/storegaph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CLion.dir/storegaph.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/Data/source/repo/NSD/CLion/storegaph.cpp -o CMakeFiles/CLion.dir/storegaph.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/storegaph.cpp -o CMakeFiles/CLion.dir/storegaph.cpp.s
 
 CMakeFiles/CLion.dir/storegaph.cpp.o.requires:
 
@@ -143,7 +143,7 @@ CLion: CMakeFiles/CLion.dir/graphstats.cpp.o
 CLion: CMakeFiles/CLion.dir/storegaph.cpp.o
 CLion: CMakeFiles/CLion.dir/build.make
 CLion: CMakeFiles/CLion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable CLion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable CLion"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CLion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -162,6 +162,6 @@ CMakeFiles/CLion.dir/clean:
 .PHONY : CMakeFiles/CLion.dir/clean
 
 CMakeFiles/CLion.dir/depend:
-	cd /home/luca/Data/source/repo/NSD/CLion/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luca/Data/source/repo/NSD/CLion /home/luca/Data/source/repo/NSD/CLion /home/luca/Data/source/repo/NSD/CLion/cmake-build-debug /home/luca/Data/source/repo/NSD/CLion/cmake-build-debug /home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug /Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/cmake-build-debug/CMakeFiles/CLion.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/CLion.dir/depend
 

@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/luca/Data/source/repo/NSD/CLion/graphstats.cpp
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/graphstats.cpp
 graphstats.h
-/home/luca/Data/source/repo/NSD/CLion/graphstats.h
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/graphstats.h
 
-/home/luca/Data/source/repo/NSD/CLion/graphstats.h
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/graphstats.h
 iostream
 -
 fstream
@@ -20,19 +20,19 @@ set
 ctime
 -
 
-/home/luca/Data/source/repo/NSD/CLion/main.cpp
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/main.cpp
 iostream
 -
 storegaph.h
-/home/luca/Data/source/repo/NSD/CLion/storegaph.h
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/storegaph.h
 ctime
 -
 
-/home/luca/Data/source/repo/NSD/CLion/storegaph.cpp
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/storegaph.cpp
 storegaph.h
-/home/luca/Data/source/repo/NSD/CLion/storegaph.h
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/storegaph.h
 
-/home/luca/Data/source/repo/NSD/CLion/storegaph.h
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/storegaph.h
 graphstats.h
-/home/luca/Data/source/repo/NSD/CLion/graphstats.h
+/Users/AndreaFerlini/Documents/Education/Master/EIT-ITA/UPMC/NSD/Practical/Practical1/CLion/graphstats.h
 

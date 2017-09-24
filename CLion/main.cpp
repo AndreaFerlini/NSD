@@ -89,6 +89,8 @@ int main(int argc, char* argv[]) {
         end = time(nullptr);
         cout << endl << "Program executed in: " << end - start << "s" << endl;
         //... some more code
+
+        system("./plot.sh");
         return 0;
     }
 }

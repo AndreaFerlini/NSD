@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/CLion.dir/main.cpp.o CMakeFiles/CLion.dir/graphstats.cpp.o CMakeFiles/CLion.dir/storegaph.cpp.o  -o CLion 
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/CLion.dir/main.cpp.o CMakeFiles/CLion.dir/graphstats.cpp.o CMakeFiles/CLion.dir/storegaph.cpp.o  -o CLion 

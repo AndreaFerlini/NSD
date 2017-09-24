@@ -25,16 +25,16 @@ int main(int argc, char* argv[]) {
     string filename;
     string outputFile;
 
-    /*if (argc < 2) { // Check the value of argc. If not enough parameters have been passed, inform user and exit.
+    if (argc < 2) { // Check the value of argc. If not enough parameters have been passed, inform user and exit.
         printHelp();
         return -1;
     } else {
         filename = argv[1];
         outputFile = argv[2];
 
-*/
-        filename = "../../graphs/with_zdn.graph";
-        outputFile = "../../graphs/with_zdn.distr";
+
+//        filename = "../../graphs/with_zdn.graph";
+//        outputFile = "../../graphs/with_zdn.distr";
         //string filename = "/Users/AndreaFerlini/Downloads/actor-movie/out.actor-movie";
         // string filename = "/Users/AndreaFerlini/Downloads/com-amazon/out.com-amazon";
         // string filename = "/Users/AndreaFerlini/Downloads/actor-collaboration/out.actor-collaboration";
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 
         start = time(nullptr);
 
-
+/*
         if (graphSize(filename, nodes, edges, debug))
             return -1;
         cout << nodes << endl << edges << endl;
@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
 
         if (cleaningData(filename, debug))
             return -1;
-
+*/
         gStats Statistics;
 
         if (graphStats(filename, Statistics, debug))
@@ -90,5 +90,5 @@ int main(int argc, char* argv[]) {
         cout << endl << "Program executed in: " << end - start << "s" << endl;
         //... some more code
         return 0;
-   // }
+    }
 }

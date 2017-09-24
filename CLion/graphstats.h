@@ -93,8 +93,8 @@ struct gStats{
                 << "    Min Degree: " << minDeg << endl
                 << "    Max Degree: " << maxDeg << endl
                 << "    Avg Degree: " << avgDeg << endl
-                << "    Degree array: " << endl;
-        degreeArray.print();
+//                << "    Degree array: " << endl;
+//        degreeArray.print();
         cout    << "    Zero Degree Nodes:";
         if (zeroDegNodes.size()!=0){
             for (zDN_it=zeroDegNodes.begin(); zDN_it!=zeroDegNodes.end(); zDN_it++)

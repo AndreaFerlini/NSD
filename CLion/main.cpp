@@ -90,7 +90,7 @@ int main(int argc, char* argv[]) {
         cout << endl << "Program executed in: " << end - start << "s" << endl;
         //... some more code
 
-        system("./plot.sh");
+        system("gnuplot ../Plot/plot_distr.plt");
         return 0;
     }
 }

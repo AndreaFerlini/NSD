@@ -16,6 +16,8 @@ int loadAdjList(string filename, bool debug){
     fstream graph;
     set<int> *adjList;
 
+    if (debug) cout << time(nullptr) << " [Adjacency List] Starting..." << endl;
+
     unsigned long numNodes;
     unsigned long numEdges;
 
@@ -59,9 +61,12 @@ int loadAdjList(string filename, bool debug){
 
     }else{
         cout << "[Adjacency List] Error! Unable to open the file " << filename << endl;
+        return -1;
     }
+
     delete[] adjList;
     graph.close();
+    return 0;
 }
 
 
@@ -109,6 +114,8 @@ int loadAdjList(string filename, bool debug){
 int loadAdjMat(string filename, bool debug){
     fstream graph;
     unsigned **AdjMat;
+
+    if (debug) cout << time(nullptr) << " [Adjacency Matrix] Starting..." << endl;
 
     unsigned long numNodes;
     unsigned long numEdges;
@@ -176,10 +183,68 @@ int loadAdjMat(string filename, bool debug){
 
     }else{
         cout << "[Adjacency Matrix] Error! Unable to open the file " << filename << endl;
+        return -1;
     }
     for (int i = 0; i < numNodes; i++) {
         delete[] AdjMat[i];
     }
     delete[] AdjMat;
     graph.close();
+    return 0;
+}
+
+
+/// calculate the number of nodes and edges
+int loadEdgeList(string filename, bool debug){
+    fstream graph;
+    pair<int,int> *edgeArray = NULL;
+
+    if (debug) cout << time(nullptr) << " [Edge List] Starting..." << endl;
+
+    unsigned long numNodes;
+    unsigned long numEdges;
+
+    if (graphSize(filename, numNodes, numEdges, debug))
+        return -1;
+
+    if (debug) cout << time(nullptr) << " [Edge List] Opening file..." << endl;
+
+    graph.open(filename, ios::in);
+    edgeArray =  new pair<int,int> [numEdges];
+
+    /// TODO not efficient
+    for(int i=0; i<numEdges; i++){
+        edgeArray[i].first = 0;
+        edgeArray[i].second = 0;
+    }
+
+    if (graph.is_open()){
+        if (debug) cout << time(nullptr) << " [Edge List] Succeed! Loading Edges..." << endl;
+        int node, neighbour;
+        int e=0;
+
+        while(!graph.eof()){
+            node = 0;
+            neighbour = 0;
+
+            graph >> node >> neighbour;
+
+            edgeArray[e].first = node;
+            edgeArray[e].second = neighbour;
+            e++;
+        }
+
+        /// DEBUG
+        for(int i=0; i<numEdges; i++){
+            cout << edgeArray[i].first << " " << edgeArray[i].second << endl;
+        }
+        if (debug) cout << time(nullptr) << " [Edge List] Done!..." << endl;
+
+    }else{
+        cout << "[Edge List] Error! Unable to open the file " << filename << endl;
+        return -1;
+    }
+    delete [] edgeArray;
+    graph.close();
+    return 0;
 }

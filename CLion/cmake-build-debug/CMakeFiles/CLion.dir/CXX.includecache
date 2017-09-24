@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-D:/source/repo/NSD/CLion/graphstats.cpp
+/home/luca/Data/source/repo/NSD/CLion/graphstats.cpp
 graphstats.h
-D:/source/repo/NSD/CLion/graphstats.h
+/home/luca/Data/source/repo/NSD/CLion/graphstats.h
 
-D:/source/repo/NSD/CLion/graphstats.h
+/home/luca/Data/source/repo/NSD/CLion/graphstats.h
 iostream
 -
 fstream
@@ -20,19 +20,19 @@ set
 ctime
 -
 
-D:/source/repo/NSD/CLion/main.cpp
+/home/luca/Data/source/repo/NSD/CLion/main.cpp
 iostream
 -
 storegaph.h
-D:/source/repo/NSD/CLion/storegaph.h
+/home/luca/Data/source/repo/NSD/CLion/storegaph.h
 ctime
 -
 
-D:/source/repo/NSD/CLion/storegaph.cpp
+/home/luca/Data/source/repo/NSD/CLion/storegaph.cpp
 storegaph.h
-D:/source/repo/NSD/CLion/storegaph.h
+/home/luca/Data/source/repo/NSD/CLion/storegaph.h
 
-D:/source/repo/NSD/CLion/storegaph.h
+/home/luca/Data/source/repo/NSD/CLion/storegaph.h
 graphstats.h
-D:/source/repo/NSD/CLion/graphstats.h
+/home/luca/Data/source/repo/NSD/CLion/graphstats.h
 

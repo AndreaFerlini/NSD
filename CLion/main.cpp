@@ -4,36 +4,91 @@
 
 using namespace std;
 
-int main() {
-    string filename = "../graphs/test0.graph";
-    //string filename = "/Users/AndreaFerlini/Downloads/actor-movie/out.actor-movie";
-    // string filename = "/Users/AndreaFerlini/Downloads/com-amazon/out.com-amazon";
-    // string filename = "/Users/AndreaFerlini/Downloads/actor-collaboration/out.actor-collaboration";
-    // string filename = "a.graphs/sample.practical1.graph";
+void printHelp(){
 
-    unsigned long nodes;
-    unsigned long edges;
-    double start, end;
+    cout << "Usage is <graph_file> <output_file>" << endl;
+//    cout << "Usage is -m <mode_id> -g <graphfile> [OPTIONS]" << endl; // Inform the user of how to use the program
+//    cout << "Modes:" << endl;
+//    cout << "  0  Size:" << endl;
+//    cout << "  1  Nodes Degree:" << endl;
+//    cout << "  2  Clear Data:" << endl;
+//    cout << "  3  Statistics:" << endl;
+//    cout << "OPTIONS:" << endl;
+//    cout << "  -s <store_mode>  Store the graph. Modes: '1'=AdjacencyList; '2'=AdjacencyMatrix; " << endl;
+//    cout << "                                           '3'=EdgeList" << endl;
+//
+}
 
-    start = time(NULL);
+int main(int argc, char* argv[]) {
 
-    if (graphSize(filename, nodes, edges, true))
+
+    string filename;
+    string outputFile;
+
+    /*if (argc < 2) { // Check the value of argc. If not enough parameters have been passed, inform user and exit.
+        printHelp();
         return -1;
+    } else {
+        filename = argv[1];
+        outputFile = argv[2];
 
-    if (countDegree(filename, true))
-        return -1;
+*/
+        filename = "../../graphs/with_zdn.graph";
+        outputFile = "../../graphs/with_zdn.distr";
+        //string filename = "/Users/AndreaFerlini/Downloads/actor-movie/out.actor-movie";
+        // string filename = "/Users/AndreaFerlini/Downloads/com-amazon/out.com-amazon";
+        // string filename = "/Users/AndreaFerlini/Downloads/actor-collaboration/out.actor-collaboration";
+        // string filename = "a.graphs/sample.practical1.graph";
 
-    /*if (cleaningData(filename))
-        return -1;
+        unsigned long nodes;
+        unsigned long edges;
+        long start, end;
+        bool debug = true;
+
+        start = time(nullptr);
+
+
+        if (graphSize(filename, nodes, edges, debug))
+            return -1;
+        cout << nodes << endl << edges << endl;
+
+
+        nDegree degreeArray;
+        if (graphSize(filename, nodes, edges, debug))
+            return -1;
+        degreeArray.print();
+
+
+        if (cleaningData(filename, debug))
+            return -1;
+
+        gStats Statistics;
+
+        if (graphStats(filename, Statistics, debug))
+            return -1;
+
+        Statistics.print();
+
+/*
+        if (loadAdjList(filename, debug))
+            return -1;
+
+
+        if (loadAdjMat(filename, debug))
+            return -1;
+
+
+        if (loadEdgeList(filename, debug))
+            return -1;
 */
 
-    if (loadAdjList(filename,true))
-        return -1;
 
-    if (loadAdjMat(filename, true))
-        return -1;
+        if (degreeDistribution(filename, outputFile, debug))
+            return -1;
 
-    end = time(NULL);
-    cout << end-start << endl;
-    return 0;
+        end = time(nullptr);
+        cout << endl << "Program executed in: " << end - start << "s" << endl;
+        //... some more code
+        return 0;
+   // }
 }

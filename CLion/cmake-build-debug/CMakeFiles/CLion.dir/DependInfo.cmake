@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/source/repo/NSD/CLion/graphstats.cpp" "D:/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir/graphstats.cpp.obj"
-  "D:/source/repo/NSD/CLion/main.cpp" "D:/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir/main.cpp.obj"
-  "D:/source/repo/NSD/CLion/storegaph.cpp" "D:/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir/storegaph.cpp.obj"
+  "/home/luca/Data/source/repo/NSD/CLion/graphstats.cpp" "/home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir/graphstats.cpp.o"
+  "/home/luca/Data/source/repo/NSD/CLion/main.cpp" "/home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir/main.cpp.o"
+  "/home/luca/Data/source/repo/NSD/CLion/storegaph.cpp" "/home/luca/Data/source/repo/NSD/CLion/cmake-build-debug/CMakeFiles/CLion.dir/storegaph.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

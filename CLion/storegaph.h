@@ -12,6 +12,8 @@ int loadAdjList(string filename, bool debug="false");
 
 int loadAdjMat(string filename, bool debug="false");
 
+int loadEdgeList(string filename, bool debug);
+
 
 
 #endif //CLION_STOREGAPH_H

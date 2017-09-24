@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CLion.dir/main.cpp.obj"
-  "CMakeFiles/CLion.dir/graphstats.cpp.obj"
-  "CMakeFiles/CLion.dir/storegaph.cpp.obj"
+  "CMakeFiles/CLion.dir/main.cpp.o"
+  "CMakeFiles/CLion.dir/graphstats.cpp.o"
+  "CMakeFiles/CLion.dir/storegaph.cpp.o"
   "CLion.pdb"
-  "CLion.exe"
-  "CLion.exe.manifest"
-  "libCLion.dll.a"
+  "CLion"
 )
 
 # Per-language clean rules from dependency scanning.

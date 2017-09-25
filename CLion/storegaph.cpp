@@ -70,6 +70,81 @@ int loadAdjList(string filename, bool debug){
 }
 
 
+int loadAdjListCompact(string filename, bool debug){
+    fstream graph;
+
+    nDegree nodesDegree;
+    graphDegree(filename, nodesDegree);
+
+    unsigned long totDegree=0;
+
+    for (unsigned long i=0; i<nodesDegree.size; i++){
+        totDegree+=nodesDegree.array[i];
+    }
+
+    unsigned long* neighboursList=new unsigned long[totDegree];  // contains all the list of neighbours in a compact way
+
+    for (unsigned long i=0; i<nodesDegree.size; i++){
+        totDegree+=nodesDegree.array[i];
+    }
+
+    unsigned long* listBegining=new unsigned long[nodesDegree.size](); // contains the index of the array neigboursList where its neignbour starts
+
+    // initialize the array listBeginning (which index is the node ID) to point at the beginning of their list
+    unsigned long pointer=0;
+    for (unsigned int node_idx=0; node_idx<nodesDegree.size; node_idx++){
+        listBegining[node_idx] = pointer;
+        pointer+=nodesDegree.array[node_idx];
+    }
+
+    graph.open(filename, ios::in);
+    if (graph.is_open()){
+        if(debug) cout << time(nullptr) << "[Compact Adjacency List]  Succeed! Building Adjacency List..." << endl;
+        int node, neighbour;
+
+        while(!graph.eof()){
+            node = 0;
+            neighbour = 0;
+
+            graph >> node >> neighbour;
+            neighboursList[listBegining[node-1]]=neighbour;
+            listBegining[node-1]++;  // Increase the pointer by one so the next time i will write the next neighbour in the correct position
+            neighboursList[listBegining[neighbour-1]]=node;
+            listBegining[neighbour-1]++;// Increase the pointer by one so the next time i will write the next neighbour in the correct position
+        }
+
+        // reset to the original beginning position (going backwards of a nr of steps equalto the degree of the node)
+        for (unsigned long node_idx=0; node_idx<nodesDegree.size; node_idx++){
+            listBegining[node_idx]-=nodesDegree.array[node_idx];
+        }
+
+        if(debug) cout << time(nullptr) << "[Compact Adjacency List]  Finished! Graph loaded." << endl;
+
+        /// DEBUG
+        if (debug) {
+            cout << "  Node\t\tNeighbours" << endl;
+            cout << "  ----------------------------" << endl;
+            for (unsigned long node = 0; node < nodesDegree.size; node++) {
+                cout << node + 1 << " -> ";
+                for (unsigned int neigh_index = 0; neigh_index<nodesDegree.array[node]; neigh_index++) {
+                    cout << neighboursList[listBegining[node]+neigh_index] << " ";
+                }
+                cout << endl;
+            }
+        }
+
+
+    }else{
+        cout << "[Compact Adjacency List] Error! Unable to open the file " << filename << endl;
+        return -1;
+    }
+
+    delete[] listBegining;
+    delete[] neighboursList;
+    graph.close();
+    return 0;
+}
+
 // /// loading the graph as adjacence list (with a list)
 // void loadAdjList(string filename, long numNodes){
 //     fstream graph;

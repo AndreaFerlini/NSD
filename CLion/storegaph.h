@@ -10,6 +10,8 @@
 //
 int loadAdjList(string filename, bool debug="false");
 
+int loadAdjListCompact(string filename, bool debug="false");
+
 int loadAdjMat(string filename, bool debug="false");
 
 int loadEdgeList(string filename, bool debug);

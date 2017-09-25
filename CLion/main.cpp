@@ -6,7 +6,7 @@ using namespace std;
 
 void printHelp(){
 
-    cout << "Usage is <graph_file> <output_file>" << endl;
+    cout << "Usage is <graph_file> <output_file> <load_method>" << endl;
 //    cout << "Usage is -m <mode_id> -g <graphfile> [OPTIONS]" << endl; // Inform the user of how to use the program
 //    cout << "Modes:" << endl;
 //    cout << "  0  Size:" << endl;
@@ -24,14 +24,20 @@ int main(int argc, char* argv[]) {
 
     string filename;
     string outputFile;
+    char loadMethod='0';
 
-    if (argc < 2) { // Check the value of argc. If not enough parameters have been passed, inform user and exit.
+
+
+    if (argc < 3) { // Check the value of argc. If not enough parameters have been passed, inform user and exit.
         printHelp();
         return -1;
     } else {
         filename = argv[1];
         outputFile = argv[2];
+        loadMethod = (argv[3])[0];
+        cout << loadMethod;
 
+        system("../../graph/clear_graph_file.sh "+filename);
 
 //        filename = "../../graphs/with_zdn.graph";
 //        outputFile = "../../graphs/with_zdn.distr";
@@ -62,29 +68,50 @@ int main(int argc, char* argv[]) {
         if (cleaningData(filename, debug))
             return -1;
 */
-        gStats Statistics;
+ /*       gStats* Statistics = new gStats();
 
-        if (graphStats(filename, Statistics, debug))
+        if (graphStats(filename, *Statistics, debug))
             return -1;
 
-        Statistics.print();
+        Statistics->print();
 
-/*
-        if (loadAdjList(filename, debug))
-            return -1;
+        delete Statistics;
+
+        switch (loadMethod){
+            case '1':{
+                if (loadAdjList(filename, true))
+                    return -1;
+                break;
+            }
+            case '2': {
+                if (loadAdjMat(filename, true))
+                    return -1;
+                break;
+            }
+
+            case '3': {
+                if (loadEdgeList(filename, true))
+                    return -1;
+            }
+            case '4': {
+                if (loadAdjListCompact(filename, true))
+                    return -1;
+            }
+            default:{
+                break;
+            }
+
+        }
 
 
-        if (loadAdjMat(filename, debug))
-            return -1;
-
-
-        if (loadEdgeList(filename, debug))
-            return -1;
-*/
 
 
         if (degreeDistribution(filename, outputFile, debug))
             return -1;
+*/
+
+
+        system("../../plots/plot_degree_distribution.sh");
 
         end = time(nullptr);
         cout << endl << "Program executed in: " << end - start << "s" << endl;

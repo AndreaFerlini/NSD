@@ -58,6 +58,7 @@ struct nDegree{
     }
 
 };
+
 struct gStats{
     unsigned long   nNodes,
                     nEdges;
@@ -116,7 +117,6 @@ int graphDegree(string filename, nDegree& nodeArray,  bool debug="false");
 
 int graphStats(string filename, gStats& graphStatistics, bool debug="false");
 
-// TODO: CHECK THIS FUNCTION
 // Clear self-loop and duplicate edges in filename
 int cleaningData(string filename, bool debug="false");
 

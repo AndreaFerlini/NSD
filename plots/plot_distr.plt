@@ -18,6 +18,6 @@ set style line 2 lc rgb 'red' pt 15   # circle
 
 set grid y
  
-set output "../Plot/with_zdn.distr.eps"
+set output "_out_distr.plot"
  
-plot "../graphs/with_zdn.distr" with points ls 2 notitle
+plot "_temp_distr.toplot" with points ls 2 notitle

@@ -2,13 +2,12 @@
 #
 #plot_degree_distribution.sh
 
-cp $1 _temp_distr.toplot
+cp "$1" "_temp_distr.toplot"
 
-gnuplot plot_distr.plt 
+gnuplot "plot_distr.plt"
 
-out="$1.distr.plot"
+out="$1.distr.plot.eps"
 
-cp _out_distr.plot out
+mv "_out_distr.plot" "$out"
 
-rm _temp_distr.toplot
-rm _out_distr.plot
+rm "_temp_distr.toplot"

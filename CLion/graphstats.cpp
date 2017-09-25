@@ -5,7 +5,7 @@
 #include "graphstats.h"
 
 /// calculate the number of nodes and edges
-int graphSize(string filename, unsigned long &numNodes, unsigned long &numEdges, bool debug){
+int graphSize(string filename, unsigned int &numNodes, unsigned int &numEdges, bool debug){
     fstream graph;
     numNodes = 0;
     numEdges = 0;
@@ -48,7 +48,7 @@ int graphSize(string filename, unsigned long &numNodes, unsigned long &numEdges,
 //  This function build an array in which stores the number of neigbours per node. At index 0 there is the first node (ID=1)
 int graphDegree(string filename, nDegree& nodeArray, bool debug){
 
-    unsigned long numEdges;
+    unsigned int numEdges;
 
     if (debug) cout << time(nullptr) << "[Graph Degree] Begin..." << endl;
 
@@ -143,8 +143,9 @@ int cleaningData(string filename, bool debug){
         cout << time(nullptr) << "[Graph Degree] Error! Unable to open the file " << filename << endl;
         return -1;
     }
+    if (debug) cout << time(nullptr) << "[Data Cleaning] Done! Graph file cleaned." << endl;
+
     graph.close();
-    cout << "DONE" << endl << endl;
     return 0;
 }
 
@@ -163,7 +164,7 @@ int graphStats(string filename, gStats& graphStatistics, bool debug){
 
 //    if (degreeArray.size!= 0){
 //        cout << "Degree From Main"<< endl;
-//        for (unsigned long i=0; i<degreeArray.size; i++){
+//        for (unsigned int i=0; i<degreeArray.size; i++){
 //            cout << "  " << i+1 << "\t" << degreeArray.array[i] << endl;
 //        }
 //    }
@@ -174,11 +175,11 @@ int graphStats(string filename, gStats& graphStatistics, bool debug){
 
     if(debug) cout << time(nullptr) << "[Graph stats] Done! Computing stats..." << endl;
 
-    unsigned long index =0;
+    unsigned int index =0;
     while (graphStatistics.degreeArray.array[index]==0) index++;
     graphStatistics.minDeg =  graphStatistics.degreeArray.array[index];
     // parse to calculate statistics
-    for (unsigned long i=0; i<graphStatistics.degreeArray.size; i++){
+    for (unsigned int i=0; i<graphStatistics.degreeArray.size; i++){
 
         //average degree
         graphStatistics.avgDeg+=graphStatistics.degreeArray.array[i];
@@ -227,7 +228,7 @@ int degreeDistribution(string graph_filename, string output_fileneme, bool debug
     if(debug) cout << time(nullptr) << "[Degree Distribution] Building distribution..." << endl;
 
     for(int degree=0;degree<=statistics.maxDeg;degree++){
-        for(unsigned long node=0; node<statistics.nNodes; node++){
+        for(unsigned int node=0; node<statistics.nNodes; node++){
             if (statistics.degreeArray.array[node]==degree)
                 distrArray[degree]++;
         }

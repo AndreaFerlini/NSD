@@ -18,8 +18,8 @@ int loadAdjList(string filename, bool debug){
 
     if (debug) cout << time(nullptr) << " [Adjacency List] Starting..." << endl;
 
-    unsigned long numNodes;
-    unsigned long numEdges;
+    unsigned int numNodes;
+    unsigned int numEdges;
 
     if (graphSize(filename, numNodes, numEdges, debug))
         return -1;
@@ -76,22 +76,22 @@ int loadAdjListCompact(string filename, bool debug){
     nDegree nodesDegree;
     graphDegree(filename, nodesDegree);
 
-    unsigned long totDegree=0;
+    unsigned int totDegree=0;
 
-    for (unsigned long i=0; i<nodesDegree.size; i++){
+    for (unsigned int i=0; i<nodesDegree.size; i++){
         totDegree+=nodesDegree.array[i];
     }
 
-    unsigned long* neighboursList=new unsigned long[totDegree];  // contains all the list of neighbours in a compact way
+    unsigned int* neighboursList=new unsigned int[totDegree];  // contains all the list of neighbours in a compact way
 
-    for (unsigned long i=0; i<nodesDegree.size; i++){
+    for (unsigned int i=0; i<nodesDegree.size; i++){
         totDegree+=nodesDegree.array[i];
     }
 
-    unsigned long* listBegining=new unsigned long[nodesDegree.size](); // contains the index of the array neigboursList where its neignbour starts
+    unsigned int* listBegining=new unsigned int[nodesDegree.size](); // contains the index of the array neigboursList where its neignbour starts
 
     // initialize the array listBeginning (which index is the node ID) to point at the beginning of their list
-    unsigned long pointer=0;
+    unsigned int pointer=0;
     for (unsigned int node_idx=0; node_idx<nodesDegree.size; node_idx++){
         listBegining[node_idx] = pointer;
         pointer+=nodesDegree.array[node_idx];
@@ -114,7 +114,7 @@ int loadAdjListCompact(string filename, bool debug){
         }
 
         // reset to the original beginning position (going backwards of a nr of steps equalto the degree of the node)
-        for (unsigned long node_idx=0; node_idx<nodesDegree.size; node_idx++){
+        for (unsigned int node_idx=0; node_idx<nodesDegree.size; node_idx++){
             listBegining[node_idx]-=nodesDegree.array[node_idx];
         }
 
@@ -124,7 +124,7 @@ int loadAdjListCompact(string filename, bool debug){
         if (debug) {
             cout << "  Node\t\tNeighbours" << endl;
             cout << "  ----------------------------" << endl;
-            for (unsigned long node = 0; node < nodesDegree.size; node++) {
+            for (unsigned int node = 0; node < nodesDegree.size; node++) {
                 cout << node + 1 << " -> ";
                 for (unsigned int neigh_index = 0; neigh_index<nodesDegree.array[node]; neigh_index++) {
                     cout << neighboursList[listBegining[node]+neigh_index] << " ";
@@ -146,7 +146,7 @@ int loadAdjListCompact(string filename, bool debug){
 }
 
 // /// loading the graph as adjacence list (with a list)
-// void loadAdjList(string filename, long numNodes){
+// void loadAdjList(string filename, int numNodes){
 //     fstream graph;
 //     list<int> *adjList = NULL;
 
@@ -192,8 +192,8 @@ int loadAdjMat(string filename, bool debug){
 
     if (debug) cout << time(nullptr) << " [Adjacency Matrix] Starting..." << endl;
 
-    unsigned long numNodes;
-    unsigned long numEdges;
+    unsigned int numNodes;
+    unsigned int numEdges;
 
     if (graphSize(filename, numNodes, numEdges, debug))
         return -1;
@@ -212,7 +212,6 @@ int loadAdjMat(string filename, bool debug){
         for (int col = 0; col < numNodes; col++) {
             AdjMat[row][col] = 0;
         }
-        cout << endl;
     }
 
     if (debug) cout << time(nullptr) << " [Adjiacency Matrix] Opening the file..." << endl;
@@ -276,8 +275,8 @@ int loadEdgeList(string filename, bool debug){
 
     if (debug) cout << time(nullptr) << " [Edge List] Starting..." << endl;
 
-    unsigned long numNodes;
-    unsigned long numEdges;
+    unsigned int numNodes;
+    unsigned int numEdges;
 
     if (graphSize(filename, numNodes, numEdges, debug))
         return -1;

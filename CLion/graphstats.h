@@ -16,7 +16,7 @@ using namespace std;
 //structure for the nodes degree
 struct nDegree{
     int* array;
-    unsigned long size;
+    unsigned int size;
 
     nDegree(){
         array= nullptr;
@@ -24,7 +24,7 @@ struct nDegree{
 //        cout << time(nullptr) << "[nDegree Constructor] nDegree variable instantiated" << endl;
     }
 
-    nDegree(unsigned long numNodes){
+    nDegree(unsigned int numNodes){
         array= new int[numNodes](); // with () it's initialized with all 0s
         size=numNodes;
 //        cout << time(nullptr) << "[nDegree Spec Constructor] nDegree variable instantiated" << endl;
@@ -34,7 +34,7 @@ struct nDegree{
     nDegree(const nDegree &obj){
         size=obj.size;
         array= new int[obj.size]; // with () it's initialized with all 0s
-        for (unsigned long i=0; i<size; i++){
+        for (unsigned int i=0; i<size; i++){
             array[i]=obj.array[i];
         }
 
@@ -52,7 +52,7 @@ struct nDegree{
     }
 
     void print(){
-        for (unsigned long i=0; i<size; i++){
+        for (unsigned int i=0; i<size; i++){
             cout << "  " << i+1 << " " << array[i] << endl;
         }
     }
@@ -60,7 +60,7 @@ struct nDegree{
 };
 
 struct gStats{
-    unsigned long   nNodes,
+    unsigned int   nNodes,
                     nEdges;
 
     set<int> zeroDegNodes;
@@ -110,7 +110,7 @@ struct gStats{
 
 /// functions
 // Count nodes and Edges and return the value in the variables numNodes and numEdges
-int graphSize(string filename, unsigned long &numNodes, unsigned long &numEdges, bool debug="false");
+int graphSize(string filename, unsigned int &numNodes, unsigned int &numEdges, bool debug="false");
 
 // Count the number of neigbours and print them on the screen
 int graphDegree(string filename, nDegree& nodeArray,  bool debug="false");

@@ -25,7 +25,11 @@ iostream
 -
 storegaph.h
 /home/luca/Data/source/repo/NSD/CLion/storegaph.h
+string
+-
 ctime
+-
+cstring
 -
 
 /home/luca/Data/source/repo/NSD/CLion/storegaph.cpp

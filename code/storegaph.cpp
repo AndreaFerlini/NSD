@@ -189,7 +189,7 @@ int loadAdjListCompact(string filename, bool debug){
 
 int loadAdjMat(string filename, bool debug){
     fstream graph;
-    unsigned **AdjMat;
+    char **AdjMat;
 
     if (debug) cout << time(nullptr) << " [Adjacency Matrix] Starting..." << endl;
 
@@ -201,10 +201,10 @@ int loadAdjMat(string filename, bool debug){
 
 
     if (debug) cout << time(nullptr) << " [Adjiacency Matrix] Allocating memory..." << endl;
-    AdjMat = new unsigned*[numNodes];
+    AdjMat = new char*[numNodes];
 
     for (int i = 0; i < numNodes; i++) {
-        AdjMat[i] = new unsigned[numNodes];
+        AdjMat[i] = new char[numNodes];
     }
 
 
@@ -247,7 +247,7 @@ int loadAdjMat(string filename, bool debug){
             for (int row = 0; row < numNodes; row++) {
                 cout << endl << row+1 << "\t|  ";
                 for (int col = 0; col < numNodes; col++) {
-                    cout << AdjMat[row][col] << " ";
+                    cout << (int)AdjMat[row][col] << " ";
                 }
 
             }
@@ -299,13 +299,7 @@ int loadEdgeList(string filename, bool debug){
         int e=0;
 
         while(!graph.eof()){
-            node = 0;
-            neighbour = 0;
-
-            graph >> node >> neighbour;
-
-            edgeArray[e].first = node;
-            edgeArray[e].second = neighbour;
+            graph >> edgeArray[e].first >> edgeArray[e].second;
             e++;
         }
 

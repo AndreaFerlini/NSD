@@ -61,14 +61,15 @@ int main(int argc, char *argv[]) {
         Statistics.print(debug);
         //Statistics.degreeArray.print();
     }
+    cin.get();
 /// --------------------------------------------------------
 
 
 /// --------- load graph as adjacency list ---------
-    {
-        if (loadAdjList(filename, true))
-            return -1;
-    }
+//    {
+//        if (loadAdjList(filename, true))
+//            return -1;
+//    }
 
 /// --------------------------------------------------------
 
@@ -80,10 +81,10 @@ int main(int argc, char *argv[]) {
 
 
 ///// --------- load graph as adjacency matrix ---------
-//    {
-//        if (loadEdgeList(filename, false))
-//            return -1;
-//    }
+    {
+        if (loadEdgeList(filename, false))
+            return -1;
+    }
 /// ------------------------------------------------------------
 
 

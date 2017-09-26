@@ -42,7 +42,7 @@ int loadAdjList(string filename, bool debug){
             graph >> node >> neighbour;
             adjList[node-1].insert(neighbour);
             adjList[neighbour-1].insert(node);
-            cout << node << endl;
+            // cout << node << endl;
         }
         if(debug) cout << time(nullptr) << "[Adjacency List] Finished! Graph loaded." << endl;
 
@@ -58,6 +58,8 @@ int loadAdjList(string filename, bool debug){
                 cout << endl;
             }
         }
+        if(debug) cout << time(nullptr) << "[Adjacency List]  Done..." << endl;
+
         graph.close();
 
     }else{
@@ -75,7 +77,7 @@ int loadAdjListCompact(string filename, bool debug){
     fstream graph;
 
     nDegree nodesDegree;
-    graphDegree(filename, nodesDegree);
+    graphDegree(filename, nodesDegree, debug);
 
     unsigned int totDegree=0;
 
@@ -108,10 +110,14 @@ int loadAdjListCompact(string filename, bool debug){
             neighbour = 0;
 
             graph >> node >> neighbour;
-            neighboursList[listBegining[node-1]]=neighbour;
-            listBegining[node-1]++;  // Increase the pointer by one so the next time i will write the next neighbour in the correct position
-            neighboursList[listBegining[neighbour-1]]=node;
-            listBegining[neighbour-1]++;// Increase the pointer by one so the next time i will write the next neighbour in the correct position
+            if (node) {
+                neighboursList[listBegining[node-1]]=neighbour;
+                listBegining[node-1]++;  // Increase the pointer by one so the next time i will write the next neighbour in the correct position
+            }
+            if(neighbour) {
+                neighboursList[listBegining[neighbour - 1]] = node;
+                listBegining[neighbour -1]++;// Increase the pointer by one so the next time i will write the next neighbour in the correct position
+            }
         }
 
         // reset to the original beginning position (going backwards of a nr of steps equalto the degree of the node)
@@ -133,6 +139,7 @@ int loadAdjListCompact(string filename, bool debug){
                 cout << endl;
             }
         }
+        if(debug) cout << time(nullptr) << "[Compact Adjacency List]  Done..." << endl;
 
 
     }else{
@@ -304,9 +311,12 @@ int loadEdgeList(string filename, bool debug){
         }
 
         /// DEBUG
-        for(int i=0; i<numEdges; i++){
-            cout << edgeArray[i].first << " " << edgeArray[i].second << endl;
+        if (debug){
+            for(int i=0; i<numEdges; i++){
+                cout << edgeArray[i].first << " " << edgeArray[i].second << endl;
+            }
         }
+
         if (debug) cout << time(nullptr) << " [Edge List] Done!..." << endl;
 
         graph.close();

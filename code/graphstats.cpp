@@ -25,7 +25,8 @@ int graphSize(string filename, unsigned int &numNodes, unsigned int &numEdges, b
             neighbour = 0;
 
             graph >> node >> neighbour;
-            numEdges++;
+            numEdges=numEdges+1;
+
             if (node > numNodes){
                 numNodes = node;
             }
@@ -68,10 +69,12 @@ int graphDegree(string filename, nDegree& nodeArray, bool debug){
     if (graph.is_open()){
         if(debug) cout << time(nullptr) << "[Graph Degree] Succeed! Counting neigbours..." << endl;
 
-
+//        nodeArray.size=0;
         while(!graph.eof()){
             node = 0;
             neighbour = 0;
+
+//            nodeArray.size++;
 
             graph >> node >> neighbour;
             if (node)

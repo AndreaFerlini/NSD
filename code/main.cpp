@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
     string  filename,
             distr_file;
 
-    filename = "../graphs/out.munmun_twitter_social";
-    distr_file = "../plots/munmun_twitter_social.distr";
+    filename = "../graphs/graph_youtube1.graph";
+    distr_file = "../plots/graph_youtube1.distr";
 
     bool is_directed= true;
 
@@ -32,13 +32,15 @@ int main(int argc, char *argv[]) {
 /// --- calculate number of nodes and edges---
 //    if (graphSize(filename, nodes, edges, debug))
 //        return -1;
+//    cout << "nodes: " << nodes << "edges: " << edges;
+//    cin.get();
 /// ------------------------------------------
 
 /// --- calculate the degree of the graph ---
 //    {
 //        nDegree degreeArray;
 //        if (graphDegree(filename, degreeArray, debug))
-//            return -1;
+//            exit(-1);
 //        degreeArray.print();
 //    }
 /// ------------------------------------------
@@ -52,47 +54,52 @@ int main(int argc, char *argv[]) {
 
 
 /// --- calculate size, degree array, min, max and avg degree, density ---
-    {
-        gStats Statistics;
+//    {
+//        gStats Statistics;
+//
+//        if (graphStats(filename, is_directed, Statistics, debug))
+//            exit(-1);
+//
+//        Statistics.print(debug);
+//        //Statistics.degreeArray.print();
+//    }
+//    cin.get();
 
-        if (graphStats(filename, is_directed, Statistics, debug))
-            return -1;
-
-        Statistics.print(debug);
-        //Statistics.degreeArray.print();
-    }
-    cin.get();
 /// --------------------------------------------------------
 
 
 /// --------- load graph as adjacency list ---------
-//    {
-//        if (loadAdjList(filename, true))
-//            return -1;
-//    }
+    {
+        if (loadAdjList(filename, debug))
+            return -1;
+    }
 
 /// --------------------------------------------------------
 
 
 /// --------- load graph as adjacency matrix ---------
+//    {
+//        if (loadAdjMat(filename, debug))
+//            return -1;
+//    }
 
 /// ------------------------------------------------------------
 
 
 
 ///// --------- load graph as adjacency matrix ---------
-    {
-        if (loadEdgeList(filename, false))
-            return -1;
-    }
+//    {
+//        if (loadEdgeList(filename, debug))
+//            return -1;
+//    }
 /// ------------------------------------------------------------
 
 
 
 /// --------- load graph as adjacency list in compact way ---------
 //    {
-//        if (loadAdjListCompact(filename, true))
-//            return -1;
+//        if (loadAdjListCompact(filename, debug))
+//            exit(-1);
 //    }
 /// ------------------------------------------------------------
 

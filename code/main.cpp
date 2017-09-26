@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
     string  filename,
             distr_file;
 
-    filename = "../graphs/graph_youtube1.graph";
-    distr_file = "../plots/graph_youtube1.distr";
+    filename = "../graphs/test0.graph";
+    distr_file = "../plots/test0.distr";
 
     bool is_directed= true;
 
@@ -69,10 +69,10 @@ int main(int argc, char *argv[]) {
 
 
 /// --------- load graph as adjacency list ---------
-    {
-        if (loadAdjList(filename, debug))
-            return -1;
-    }
+//    {
+//        if (loadAdjList(filename, debug))
+//            return -1;
+//    }
 
 /// --------------------------------------------------------
 
@@ -88,10 +88,10 @@ int main(int argc, char *argv[]) {
 
 
 ///// --------- load graph as adjacency matrix ---------
-//    {
-//        if (loadEdgeList(filename, debug))
-//            return -1;
-//    }
+    {
+        if (loadEdgeList(filename, debug))
+            return -1;
+    }
 /// ------------------------------------------------------------
 
 

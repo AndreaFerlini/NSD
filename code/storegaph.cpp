@@ -79,7 +79,7 @@ int loadAdjListCompact(string filename, bool debug){
     nDegree nodesDegree;
     graphDegree(filename, nodesDegree, debug);
 
-    unsigned int totDegree=0;
+    unsigned long totDegree=0;
 
     for (unsigned int i=0; i<nodesDegree.size; i++){
         totDegree+=nodesDegree.array[i];

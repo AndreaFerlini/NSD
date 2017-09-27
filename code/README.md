@@ -77,13 +77,12 @@ The main directory contains the following folders:
 
 	4. COMMENTS ON SCALABILITY
 
-	The code has been executed on a bunch of graphs from konect (1. orkut_link, 2. youtube_friendship, 3. youtube_affiliation, 4. _, 5. _), chosen between directed and undireced ones.
+	The code has been executed on a bunch of graphs from konect (1. orkut_link, 2. youtube_friendship, 3. youtube_affiliation), chosen between directed and undireced ones.
 
 		1. 3072441 nodes | 117184899 edges | contiguous adj. list: 75s | list of edges: 40 s| adj. matrix: - 
 		2. 1157827 nodes |   2987624 edges | contiguous adj. list: 1 s | list of edges: 9 s | adj. matrix: -
 		3.   94238 nodes |    293361 edges | contiguous adj. list: 0 s | list of edges: 0 s | adj. matrix: 32s
 		
-
 		a. Loading the graph as list of edges is extremely fast, however this is not efficient for other pourposes;
 		b. The matrix is not scalable: having an high number of edges n leads to a n*n matrix, which may be to big to fit the memory. Moreover, it implies a huge waste of space whenever the density is low;
 		c. Adjacency list is more efficient than adjacency matrix in terms of memory loading. It is also more performing than a regular list of edges, since it lends itself to be used for more complex searching operations, etc.;

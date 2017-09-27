@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
     string  filename,
             distr_file;
 
-    filename = "../graphs/test0.graph";
-    distr_file = "../plots/test0.distr";
+    filename = "../graphs/out.orkut-links";
+    distr_file = "../plots/orkut-links.distr";
 
     bool is_directed= true;
 
@@ -88,19 +88,19 @@ int main(int argc, char *argv[]) {
 
 
 ///// --------- load graph as adjacency matrix ---------
-    {
-        if (loadEdgeList(filename, debug))
-            return -1;
-    }
+//    {
+//        if (loadEdgeList(filename, debug))
+//            return -1;
+//    }
 /// ------------------------------------------------------------
 
 
 
 /// --------- load graph as adjacency list in compact way ---------
-//    {
-//        if (loadAdjListCompact(filename, debug))
-//            exit(-1);
-//    }
+    {
+        if (loadAdjListCompact(filename, debug))
+            exit(-1);
+    }
 /// ------------------------------------------------------------
 
 

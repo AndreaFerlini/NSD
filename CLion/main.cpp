@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
 
         Statistics.print();
 
-/*
+
         if (loadAdjList(filename, debug))
             return -1;
 
@@ -80,7 +80,6 @@ int main(int argc, char* argv[]) {
 
         if (loadEdgeList(filename, debug))
             return -1;
-*/
 
 
         if (degreeDistribution(filename, outputFile, debug))

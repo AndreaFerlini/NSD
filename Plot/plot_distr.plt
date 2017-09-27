@@ -20,4 +20,5 @@ set grid y
  
 set output "../Plot/with_zdn.distr.eps"
  
-plot "../graphs/with_zdn.distr" with points ls 2 notitle
+#plot "../graphs/with_zdn.distr" with points ls 2 notitle
+plot "~/Downloads/orkut-links.distr" with points ls 2 notitle

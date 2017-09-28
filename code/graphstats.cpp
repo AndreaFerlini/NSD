@@ -59,6 +59,9 @@ int graphDegree(string filename, nDegree& nodeArray, bool debug){
 
     fstream graph;
 
+
+    nodeArray.size++; // add the 0 element
+
     nodeArray.array = new int[nodeArray.size]();
     int node, neighbour;
 
@@ -218,7 +221,7 @@ int graphStats(string filename, bool directed, gStats& graphStatistics, bool deb
 }
 
 
-int degreeDistribution(string graph_filename, string output_fileneme, bool debug){
+int degreeDistribution(string graph_filename, bool is_directed, string output_fileneme, bool debug){
 
     fstream graph;
     fstream distrFile;
@@ -227,7 +230,7 @@ int degreeDistribution(string graph_filename, string output_fileneme, bool debug
 
     if(debug) cout << time(nullptr) << "[Degree Distribution] Extracting degree array..." << endl;
 
-    if (graphStats(graph_filename, false, statistics, debug))
+    if (graphStats(graph_filename, is_directed, statistics, debug))
         return -1;
 
 

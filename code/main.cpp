@@ -13,10 +13,17 @@ int main(int argc, char *argv[]) {
     string  filename,
             distr_file;
 
-    filename = "../graphs/out.orkut-links";
-    distr_file = "../plots/orkut-links.distr";
 
-    bool is_directed= true;
+/// ---------- CHANGE THESE VARIABLES TO LOAD THE CIRECT GRAPH ------------
+/// -----------------------------------------------------------------------
+    filename = "../graphs/test0.graph";
+    distr_file = "../plots/test0.distr";
+    bool is_directed= false;
+/// -----------------------------------------------------------------------
+
+    ifstream file(filename);
+    if (!file.good())
+        cout << "No such file... " << endl;
 
     string command = "../graphs/clear_graph_file.sh " + filename;
     cout << command << endl;
@@ -30,68 +37,68 @@ int main(int argc, char *argv[]) {
     start = time(nullptr);
 
 /// --- calculate number of nodes and edges---
-//    if (graphSize(filename, nodes, edges, debug))
-//        return -1;
-//    cout << "nodes: " << nodes << "edges: " << edges;
-//    cin.get();
+    if (graphSize(filename, nodes, edges, debug))
+        return -1;
+    cout << "nodes: " << nodes << "edges: " << edges;
+    cin.get();
 /// ------------------------------------------
 
 /// --- calculate the degree of the graph ---
-//    {
-//        nDegree degreeArray;
-//        if (graphDegree(filename, degreeArray, debug))
-//            exit(-1);
-//        degreeArray.print();
-//    }
+    {
+        nDegree degreeArray;
+        if (graphDegree(filename, degreeArray, debug))
+            exit(-1);
+        degreeArray.print();
+    }
 /// ------------------------------------------
 
 
 /// --- clear self-loop and double edges ---
-//    if (cleaningData(filename, debug))
-//        return -1;
+    if (cleaningData(filename, debug))
+        return -1;
 
 /// ------------------------------------------
 
 
 /// --- calculate size, degree array, min, max and avg degree, density ---
-//    {
-//        gStats Statistics;
-//
-//        if (graphStats(filename, is_directed, Statistics, debug))
-//            exit(-1);
-//
-//        Statistics.print(debug);
-//        //Statistics.degreeArray.print();
-//    }
-//    cin.get();
+    {
+        gStats Statistics;
+
+        if (graphStats(filename, is_directed, Statistics, debug))
+            exit(-1);
+
+        Statistics.print(debug);
+        //Statistics.degreeArray.print();
+    }
+    cin.get();
 
 /// --------------------------------------------------------
 
 
 /// --------- load graph as adjacency list ---------
-//    {
-//        if (loadAdjList(filename, debug))
-//            return -1;
-//    }
+    {
+        if (loadAdjList(filename, debug))
+            return -1;
+    }
 
 /// --------------------------------------------------------
 
 
 /// --------- load graph as adjacency matrix ---------
-//    {
-//        if (loadAdjMat(filename, debug))
-//            return -1;
-//    }
+    {
+        if (loadAdjMat(filename, debug))
+            return -1;
+    }
 
 /// ------------------------------------------------------------
 
 
 
 ///// --------- load graph as adjacency matrix ---------
-//    {
-//        if (loadEdgeList(filename, debug))
-//            return -1;
-//    }
+    {
+        if (loadEdgeList(filename, debug))
+            return -1;
+    }
 /// ------------------------------------------------------------
 
 
@@ -104,15 +111,15 @@ int main(int argc, char *argv[]) {
 /// ------------------------------------------------------------
 
 
-/// --- calculate degree distributuion and plot the histogram ---
-//    {
-//        if (degreeDistribution(filename, distr_file, debug))
-//            return -1;
-//
-//
-//        command = "cd ../plots && ./plot_degree_distribution.sh " + distr_file;
-//        system(command.c_str());
-//    }
+/// --- calculate degree distribution and plot the histogram ---
+    {
+        if (degreeDistribution(filename, is_directed, distr_file, debug))
+            return -1;
+
+
+        command = "cd ../plots && ./plot_degree_distribution.sh " + distr_file;
+        system(command.c_str());
+    }
 /// ------------------------------------------------------------
 
 

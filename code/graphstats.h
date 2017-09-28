@@ -126,6 +126,6 @@ int graphStats(string filename, bool directed, gStats& graphStatistics, bool deb
 // Clear self-loop and duplicate edges in filename
 int cleaningData(string filename, bool debug="false");
 
-int degreeDistribution(string graph_filename, string output_fileneme, bool debug="false");
+int degreeDistribution(string graph_filename, bool is_directed, string output_fileneme, bool debug="false");
 
 #endif //CLION_FUNCTIONS_H
